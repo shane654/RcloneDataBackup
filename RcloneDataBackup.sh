@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d "/root/RcloneDataBackup/data" ]; then
-    mkdir -p $zip_target
+    mkdir -p "/root/RcloneDataBackup/data"
 fi
 
 pwd_path="/root/RcloneDataBackup"
