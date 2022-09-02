@@ -4,7 +4,7 @@ if [ ! -d "/root/RcloneDataBackup/data" ]; then
     mkdir -p $zip_target
 fi
 
-pwd_path=$(pwd)
+pwd_path="/root/RcloneDataBackup"
 zip_target="/root/RcloneDataBackup/data"
 data_dir="/www/wwwroot"
 local_ip=$(ip a | grep " $(route | grep default | awk 'NR==1{print $NF}'):" -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d '/')
@@ -26,7 +26,7 @@ for file in $(ls $data_dir); do
     # 压缩文件
     cd $data_dir
     tar zcvf $zip_target"/"$file"/backup_"$(date +"%Y%m%d%H%M").tar.gz $file
-    cd $pwd_path
+    cd "/root/RcloneDataBackup"
 done
 
 # 获取本机IP
