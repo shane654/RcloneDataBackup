@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [ ! -d "./data" ]; then
+if [ ! -d "/root/RcloneDataBackup/data" ]; then
     mkdir -p $zip_target
 fi
 
 pwd_path=$(pwd)
-zip_target=$pwd_path"/data"
+zip_target="/root/RcloneDataBackup/data"
 data_dir="/www/wwwroot"
 local_ip=$(ip a | grep " $(route | grep default | awk 'NR==1{print $NF}'):" -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d '/')
 echo "开始执行数据备份任务，本机信息：$HOSTNAME，$local_ip ..."
